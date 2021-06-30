@@ -4,10 +4,12 @@
 
 export const environment = {
   production: false,
-  url_movies:"../assets/movies.json"
+  url_movies:"http://localhost:3000/movies/"
 };
 
 /*
+url_movies:"../assets/movies.json"
+
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

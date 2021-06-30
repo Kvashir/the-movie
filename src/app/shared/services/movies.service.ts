@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { find, filter } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Movie } from '../interface/movie';
 import { Lista } from '../interface/lista';
@@ -9,16 +10,14 @@ import { Lista } from '../interface/lista';
   providedIn: 'root'
 })
 export class MoviesService {
-  movies!:Array<Movie>;
-
+  
   constructor(private http:HttpClient) { }
 
   getMovies$():Observable<Array<Movie>>{
-    return  this.http.get(environment.url_movies).subscribe(data:Lista => { return this.movies = data.movies:Array<Movie> }) as unknown as Observable<Array<Movie>>;
+    return  this.http.get<Array<Movie>>(environment.url_movies)
   }
-  getMovie(id:number):Movie{
-    let movie:Movie = this.getMovies$().subscribe(data => data.find(e => { e.id == id })) as Movie ;
-    return movie
+
+  getMovie$(id:number):Observable<Movie>{
+    return this.http.get<Movie>(environment.url_movies.concat(id.toString()));
   }
 }
-
