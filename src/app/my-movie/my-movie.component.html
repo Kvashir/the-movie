@@ -1,0 +1,28 @@
+
+<div>
+<h1>
+  {{movie?.title}}
+</h1>
+<h2>{{movie?.year}}</h2>
+<img src={{movie?.poster}}>
+<div class="info">
+<p>
+{{movie?.synopsis}}
+</p>
+
+<p><strong>Director: </strong>{{movie?.director}}</p>
+
+<ul class="genres">
+  <li>Generos:</li>
+  <li *ngFor="let gen of movie.genres">{{gen}}</li>
+</ul>
+
+<ul class="actors">
+  <li>Actores:</li>
+  <li *ngFor="let act of movie.actors">{{act}}</li>
+</ul>
+</div>
+
+<button>Edit</button>
+
+</div>

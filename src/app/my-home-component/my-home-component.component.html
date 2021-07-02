@@ -2,8 +2,10 @@
 
 
  <ul>
-  <li *ngFor="let movie of movies">{{movie.title}}
-    <img src={{movie.poster}} alt="" srcset=""></li>
+  <li *ngFor="let movie of movies">
+    <a [routerLink]="['/movie',movie.id]"><img src={{movie.poster}}>
+    <h3>{{movie.title}}</h3></a>
+  </li>
 </ul>
 
- 
+

@@ -12,14 +12,14 @@ import { MoviesService } from '../shared/services/movies.service';
   styleUrls: ['./my-home-component.component.scss']
 })
 export class MyHomeComponentComponent implements OnInit {
+  
   movies!:Array<Movie>;
   datos!:any;
   movie!:any;
-  constructor(private movieService:MoviesService) {
-    
-    movieService.getMovies$().subscribe(data => this.movies = data);
 
-    movieService.getMovie$(1).subscribe(data =>this.movie = data);
+  constructor(private movieService:MoviesService) {
+
+    movieService.getMovies$().subscribe(data => this.movies = data);
 
   }
 
